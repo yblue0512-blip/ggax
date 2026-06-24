@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>유보름 소개</title>
+
+<style>
+*{ margin:0; padding:0; box-sizing:border-box; }
+
+body{
+  font-family:'Pretendard', sans-serif;
+  min-height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  overflow:hidden;
+  background:linear-gradient(135deg,#ffe4f1,#f3e8ff,#dff7ff);
+}
+
+.card{
+  width:90%;
+  max-width:700px;
+  background:rgba(255,255,255,0.75);
+  backdrop-filter:blur(15px);
+  border-radius:40px;
+  padding:60px 40px;
+  text-align:center;
+  box-shadow:0 15px 40px rgba(255,182,193,0.25);
+  position:relative;
+  z-index:2;
+}
+
+.profile{
+  width:140px;
+  height:140px;
+  margin:0 auto 25px;
+  border-radius:50%;
+  background:linear-gradient(135deg,#ffd6e8,#d8c8ff,#cdefff);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:60px;
+}
+
+h1{
+  color:#7a5ea8;
+  font-size:48px;
+  margin-bottom:10px;
+}
+
+.intro{
+  color:#666;
+  font-size:20px;
+  line-height:1.7;
+  margin-bottom:40px;
+}
+
+.section-title{
+  font-size:24px;
+  color:#8d6fc5;
+  margin-bottom:20px;
+}
+
+.hobbies{
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:15px;
+  margin-bottom:45px;
+}
+
+.hobby{
+  background:#fff7fb;
+  color:#7b6a9d;
+  padding:14px 22px;
+  border-radius:999px;
+  font-size:17px;
+  box-shadow:0 5px 15px rgba(0,0,0,0.05);
+}
+
+.contact-btn{
+  display:inline-block;
+  padding:16px 35px;
+  text-decoration:none;
+  color:white;
+  border-radius:999px;
+  font-size:18px;
+  font-weight:600;
+  background:linear-gradient(135deg,#ffb7d5,#c9a7ff);
+  transition:0.3s;
+}
+
+.contact-btn:hover{
+  transform:translateY(-3px);
+  box-shadow:0 10px 25px rgba(201,167,255,0.4);
+}
+
+.footer{
+  margin-top:30px;
+  color:#999;
+  font-size:14px;
+}
+
+/* 벚꽃 효과 */
+.petal{
+  position:fixed;
+  top:-30px;
+  color:#ffb7d5;
+  font-size:22px;
+  pointer-events:none;
+  z-index:1;
+  animation:fall linear infinite;
+}
+
+@keyframes fall{
+  0%{
+    transform:translateY(-40px) rotate(0deg);
+    opacity:1;
+  }
+  100%{
+    transform:translateY(110vh) rotate(360deg);
+    opacity:0.4;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+  <div class="profile">🌸</div>
+
+  <h1>유보름</h1>
+
+  <p class="intro">
+    사람과 기술을 연결하며<br>
+    새로운 가치를 만드는 기술사업화 담당자입니다.
+  </p>
+
+  <div class="section-title">✨ 취미</div>
+
+  <div class="hobbies">
+    <div class="hobby">🎤 노래</div>
+    <div class="hobby">🎬 영화 감상</div>
+    <div class="hobby">✈️ 여행</div>
+  </div>
+
+  <a class="contact-btn" href="mailto:yourgmail@gmail.com">
+    💌 Gmail로 연락하기
+  </a>
+
+  <div class="footer">Have a lovely day 🌷</div>
+</div>
+
+<script>
+function createPetal(){
+  const petal = document.createElement("div");
+  petal.classList.add("petal");
+  petal.innerText = "🌸";
+
+  petal.style.left = Math.random() * 100 + "vw";
+  petal.style.fontSize = Math.random() * 14 + 16 + "px";
+  petal.style.animationDuration = Math.random() * 5 + 6 + "s";
+  petal.style.opacity = Math.random() * 0.5 + 0.5;
+
+  document.body.appendChild(petal);
+
+  setTimeout(() => {
+    petal.remove();
+  }, 11000);
+}
+
+setInterval(createPetal, 350);
+</script>
+
+</body>
+</html>
